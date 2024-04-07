@@ -4,6 +4,7 @@ on:
         inputs:
             artifact-name:
                 required: true
+                type: String
 jobs:
     deploy:
         runs-on: ubuntu-latest
@@ -11,7 +12,9 @@ jobs:
             - name: Get Code
               uses: actions/download-artifact@v3
               with:
-                name: dist-files
+                name: ${{ inputs.artifact-name }}
+            - name: List files
+              run: ls
             - name: Output Info
               run: echo "Deploying artifact"
         
