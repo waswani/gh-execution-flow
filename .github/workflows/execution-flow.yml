@@ -76,7 +76,7 @@ jobs:
     needs: deploy
     steps:
     - name: Print Deploy Object
-      run: echo "${{ needs.deploy.outputs.result }}""
+      run: echo "${{ needs.deploy.outputs.result }}"
   report:
     if: failure() || success()
     needs: [lint, deploy]
