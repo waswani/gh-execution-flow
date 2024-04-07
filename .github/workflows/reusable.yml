@@ -8,7 +8,7 @@ on:
                 default: dist
         outputs:
             result:
-                value: ${{ jobs.deploy.outcome }}
+                value: ${{ jobs.deploy.outputs.outcome }}
 jobs:
     deploy:
         outputs:
