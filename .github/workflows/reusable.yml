@@ -1,9 +1,17 @@
 name: Reuable Deployable
-on: workflow_call
+on: 
+    workflow_call:
+        inputs:
+            artifact-name:
+                required: true
 jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
+            - name: Get Code
+              uses: actions/download-artifact@v3
+              with:
+                name: dist-files
             - name: Output Info
               run: echo "Deploying artifact"
         
